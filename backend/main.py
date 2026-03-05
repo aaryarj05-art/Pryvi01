@@ -15,3 +15,10 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"message": "Hello Pryvi"}
+
+
+
+
+@app.get("/health-check")
+def health_check():
+    return {"status": "healthy"}
