@@ -18,7 +18,14 @@ def root():
 
 
 
+from pydantic import BaseModel
 
-@app.get("/health-check")
-def health_check():
-    return {"status": "healthy"}
+class CalculateRiskRequest(BaseModel):
+    age: int
+    bloodPressure: int
+    diabetes: str
+    cholesterol: int
+
+@app.post("/calculate-risk")
+def calculate_risk(data: CalculateRiskRequest):
+    return {"risk": 0}
